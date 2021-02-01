@@ -1,3 +1,4 @@
+create schema if not exists warehouse;
 create table warehouse.access_roles
 (
 	id serial not null,
