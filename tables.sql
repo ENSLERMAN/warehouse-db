@@ -1,4 +1,3 @@
-create schema if not exists warehouse;
 create table warehouse.access_roles
 (
 	id serial not null,
@@ -89,6 +88,9 @@ create table warehouse.users
 
 alter table warehouse.users owner to ensler;
 
+create unique index users_id_uindex
+	on warehouse.users (id);
+
 create table warehouse.dispatch
 (
 	id serial not null,
@@ -114,9 +116,6 @@ create unique index dispatch_id_uindex
 
 create unique index dispatch_date_uindex
 	on warehouse.dispatch (date);
-
-create unique index users_id_uindex
-	on warehouse.users (id);
 
 create table warehouse.shipment_history
 (
